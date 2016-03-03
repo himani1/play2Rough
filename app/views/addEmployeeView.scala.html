@@ -1,0 +1,22 @@
+@import b3.vertical.fieldConstructor
+@(addForm:Form[AddEmployee])(implicit messages:Messages)
+
+@views.html.main("Add Employee"){
+<div>
+    @b3.form(routes.DashBoardController.addEmp){
+    @b3.text( addForm("name"), '_label -> "Name ", 'required->true )
+    @b3.text( addForm("address"), '_label -> "Address", 'required->true )
+    @b3.date(addForm("dob"),'_label -> "Date OF Birth", 'required->true)
+    @b3.date(addForm("doj"),'_label -> "Joining Date", 'required->true)
+    @b3.text( addForm("designation"), '_label -> "Designation", 'required->true )
+    @b3.submit('class -> "btn btn-success" ){ Create Employee }
+
+    }
+
+
+</div>
+
+
+
+
+}

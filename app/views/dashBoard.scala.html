@@ -1,0 +1,42 @@
+@(empList:List[Employee],filterForm:Form[(String)])(implicit messages:Messages)
+
+@views.html.main("DashBoard"){
+<div>
+
+    @helper.form(action=routes.DashBoardController.getByName){
+    @helper.inputText(filterForm("name"),'placeholder->"Filter by Employee name")
+    <button type="submit" class="btn btn-primary" style="background-color:orange;color:white">Filter by Name</button>
+    }
+
+
+    <a href="/renderEmployeeForm " class="btn btn-success pull-right" role="button">Add An Employee</a>
+
+     <br><br>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Date Of Birth</th>
+            <th>Joining Date</th>
+            <th>Designation</th>
+        </tr>
+        </thead>
+        <tbody>
+        @for(empVal<-empList){
+        <tr>
+            <td><a href="/editEmployee/@empVal.name">@empVal.name</a></td>
+            <td>@empVal.address</td>
+            <td>@empVal.dob</td>
+            <td>@empVal.doj</td>
+            <td>@empVal.designation</td>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+}
+
+
+
