@@ -40,16 +40,16 @@ val empList:ListBuffer[Employee]=ListBuffer(Employee("Seema","Ashok Vihar",new S
   }
   def deleteEmployee(ename:String):Boolean={
     if(empList.map(_.name).contains(ename)) {
-      //println(""+ename+eaddress+edob)
+
       empList.remove(empList.map(_.name).indexOf(ename))
       true
     }
     false
   }
   def updateEmployee(ename:String,eaddress:String,edob:Date,edoj:Date,edesig:String):Boolean={
-   // println(""+ename+eaddress+edob)
+
     if(empList.map(_.name).contains(ename)) {
-  //println(""+ename+eaddress+edob)
+
       empList.update(empList.map(_.name).indexOf(ename),Employee(ename,eaddress,edob,edoj,edesig))
       true
     }
